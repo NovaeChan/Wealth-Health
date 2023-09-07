@@ -1,0 +1,30 @@
+header{
+    width: 100%;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    // padding: 0 50px;
+    background-color: #252525;
+    font-size: 25px;
+}
+.header-title{
+    width: 10%;
+}
+.header-links{
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+a:hover{
+    text-decoration: none;
+}
+a{
+    color: rgb(235, 235, 235);
+}
