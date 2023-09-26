@@ -8,6 +8,7 @@ import Header from '../components/Header/Header'
 import States from "../assets/data/States.json";
 import Departements from "../assets/data/Departements.json";
 
+import "../style/pages/CreateEmployee.scss"
 
 const CreateEmployee = () => {
     //Modal

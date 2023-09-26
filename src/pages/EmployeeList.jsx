@@ -1,6 +1,7 @@
 import Header from '../components/Header/Header'
-import '../style/pages/EmployeeList.scss'
 import DataTable from 'react-data-table-component';
+
+import "../style/pages/EmployeeList.scss"
 
 const EmployeeList = () => {
     const employees = JSON.parse(localStorage.getItem("employees")) || [];
@@ -58,8 +59,12 @@ const EmployeeList = () => {
                 {
                     employees.length !== 0 &&
                     <DataTable
+                        className='dataTable'
                         columns={columns}
                         data={employees}
+                        highlightOnHover
+                        responsive
+                        striped
                     />                
                 }
             </div>
