@@ -10,7 +10,10 @@ import Departements from "../assets/data/Departements.json";
 
 
 const CreateEmployee = () => {
+    //Modal
     const [displayModal, setDisplayModal] = useState(false);
+
+    //Employee
     const [birthDate, setBirthDate] = useState("");
     const [startDate, setStartDate] = useState("");
     const [formValidated, setFormValidated] = useState(false);
@@ -27,30 +30,35 @@ const CreateEmployee = () => {
         "department": Departements[0].abbreviation
     })
     
-
+    //Datepicker
     const handleDateChange = (name, value) => {
         setEmployee({
             ...employee, [name]: new Date(value).toLocaleDateString("en")
         });
     }
 
+    //Display modal
     const handleOnclick = () => {
         setDisplayModal(true);
     }
 
+    //Dropdown
     const handleDropdownChange = (name, value) => {
         setEmployee({
             ...employee, [name]: value
         });
     }
 
+    //Form
     const handleFormChange = (event) => {
         setEmployee({
             ...employee, [event.target.name]: event.target.value
         })
     }
 
+    //Save 
     const saveForm = () => {
+        //Checking if the fields are filled
         setError([]);
         console.log(error);
         Object.keys(employee).forEach((input, index) => {
@@ -71,6 +79,7 @@ const CreateEmployee = () => {
             employees.push(employee);
             console.log(employee)
             localStorage.setItem("employees", JSON.stringify(employees));
+            //Resetting the form
             setEmployee({
                 "firstName": "",
                 "lastName": "",
@@ -94,6 +103,7 @@ const CreateEmployee = () => {
             <div className="wrapper">
                 <div className="container">
                     <h2 className="title">Create Employee</h2>
+                    {/* Form */}
                     <form action="#" id="create-employee">
                         <div className="form-details">
                             <span className="form-category">Personal informations</span>
@@ -143,6 +153,7 @@ const CreateEmployee = () => {
                         <Dropdown name="department" onChange={(value) => handleDropdownChange("department", value)} options={Departements}/>
                     </form>
                     <button onClick={saveForm}>Save</button>
+                    {/* Modal */}
                     <Modal content="Employee Created!" displayModal={displayModal} setDisplayModal={setDisplayModal}/>
                 </div>
             </div>
